@@ -133,9 +133,12 @@ if s:is_win
   inoremap <expr> <plug>(fzf-complete-file)      fzf#vim#complete#path('dir /s/b/a:-d')
 else
   inoremap <expr> <plug>(fzf-complete-path)      fzf#vim#complete#path("find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'")
+  inoremap <expr> <plug>(fzf-complete-path-fd)   fzf#vim#complete#path("fd --color never")
   inoremap <expr> <plug>(fzf-complete-file)      fzf#vim#complete#path("find . -path '*/\.*' -prune -o -type f -print -o -type l -print \| sed 's:^..::'")
+  inoremap <expr> <plug>(fzf-complete-file-fd)   fzf#vim#complete#path("fd -t f -t l --color never")
 endif
 inoremap <expr> <plug>(fzf-complete-file-ag)     fzf#vim#complete#path('ag -l -g ""')
+inoremap <expr> <plug>(fzf-complete-file-rg)     fzf#vim#complete#path('rg --files')
 inoremap <expr> <plug>(fzf-complete-line)        fzf#vim#complete#line()
 inoremap <expr> <plug>(fzf-complete-buffer-line) fzf#vim#complete#buffer_line()
 
